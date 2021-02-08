@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<nidocument>
+<nicomment>
+Defines error codes used by the LabVIEW Style Sheets add on.  This add on is capable of changing the style of a user interface using code similar to cascading style sheets.
+
+
+<nifamily familyname="LabVIEW Style Sheets Errors" displayname="LabVIEW Style Sheets Errors">
+</nifamily>
+</nicomment>
+<nierror code="403560">
+Malformed Style Sheet.  The LSS is not formatted properly and cannot be interpreted.  See Detailed Help or Getting Started Guide for details on formatting LSS.
+</nierror>
+<nierror code="403561">
+The Rules String references a control by name that cannot be found on the front panel.  Rename the control, or change the Rules string to match.
+</nierror>
+</nidocument>
