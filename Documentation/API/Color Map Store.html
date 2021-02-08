@@ -1,0 +1,119 @@
+<HTML>
+<HEAD>
+<TITLE>LSS.lvlib:Color Map Store.vi</TITLE>
+<META NAME="Author" CONTENT="">
+<META NAME="GENERATOR" CONTENT="G Development Environment">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<!-- Next Item Starts Here ****************************************************************************************************************************************************************************************** -->
+<A NAME="LSS.lvlib:Color Map Store.vi"></A><H2>LSS.lvlib:Color Map Store.vi</H2>
+<P>This functional global variable stores the color map values so other LSS functions can make sure of those values without needing to pass in the color map values with each LSS string.</P>
+<P></P>
+
+<P><IMG SRC="LSS_lvlib_Color_Map_Storec.png" ALT="LSS.lvlib:Color Map Store.vi"></P>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>colorMap</B><p>This string is an LSS formatted string that allows the mapping of hexidecimal color constants to string names that are easier to remember.  Once a color is defined in the colorMap, any subsequent LSS call can simply use the name of the color instead of the hexidecimal representation.  This input is only used when the mode input is set to &quot;Write&quot; or &quot;Add&quot;.  The format for this string is as follows:</P>
+<P>     colorMap{</P>
+<P>     myColorName:#000000;</P>
+<P>     }</P></p> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cenum.png" ALT="cenum"></P>
+</TD>
+<TD>
+<B>Mode</B><p>Select between the following options:</P>
+<P>1. Write - Saves the colorMap input string for use by later LSS functions.  Will overwrite any previously saved colormap values.</P>
+<P>2. Add - Adds the new colorMap LSS string to the existing string.</P>
+<P>3. Read - Reads all currently saved color map values.<p> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cerrcodeclst.png" ALT="cerrcodeclst"></P>
+</TD>
+<TD>
+<B>Error In</B> <P><B>error in</B> can accept error information wired from VIs previously called. Use this information to decide if any functionality should be bypassed in the event of errors from other VIs.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="i1dcclst.png" ALT="i1dcclst"></P>
+</TD>
+<TD>
+<B>colorMap</B><p>Contains the data from the colorMap input string as a parsed array that is used by LSS functions for changing style of the UI.</p> </TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="icclst.png" ALT="icclst"><p>Array of color map name value pairs.</P>
+</TD>
+<TD>
+<B></B> </TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="istr.png" ALT="istr"></P>
+</TD>
+<TD>
+<B>color-name</B> <p>Name of the color as a string</p></TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="istr.png" ALT="istr"></P>
+</TD>
+<TD>
+<B>hex-value</B> <p>Value of the color in hex</p></TD>
+</TR>
+</Table>
+</UL>
+</UL>
+
+
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="istr.png" ALT="istr"></P>
+</TD>
+<TD>
+<B>colorMap String</B><p>Outputs the text of the items saved in the color map as a string.</p> </TD>
+</TR>
+</Table>
+
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ierrcodeclst.png" ALT="ierrcodeclst"></P>
+</TD>
+<TD>
+<B>Error out</B> <P>Returns errors from this VI if any occured.</P>
+</TD>
+</TR>
+</Table>
+
+<hr>
+
+
+</BODY>
+</HTML>

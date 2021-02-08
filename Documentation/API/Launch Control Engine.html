@@ -1,0 +1,130 @@
+<HTML>
+<HEAD>
+<TITLE>LSS.lvlib:Launch Control Engine.vi</TITLE>
+<META NAME="Author" CONTENT="">
+<META NAME="GENERATOR" CONTENT="G Development Environment">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+
+<!-- Next Item Starts Here ****************************************************************************************************************************************************************************************** -->
+<A NAME="LSS.lvlib:Launch control engine.vi"></A><H2>LSS.lvlib:Launch control engine.vi</H2>
+<P>This VI launches the Property Control Engine for LSS.  The Property Control Engine will monitor the state of certain controls based on the Rules String input and then control the style of the controls based on the values it finds.  The property control engine is currently only compatible with Value Change events for controls.  </P>
+<P></P>
+<P><IMG SRC="LSS_lvlib_Launch_control_enginec.png" ALT="LSS.lvlib:Launch control engine.vi"></P>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cvirn.png" ALT="cvirn"></P>
+</TD>
+<TD>
+<B>Controlled VI</B><p>This reference should be to the VI that will be controlled by the LSS Engine.  The user may launch as many LSS engines as desired, but must use one LSS engine per VI that will be controlled.</p> </TD>
+</TR>
+</Table>
+
+
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>Rules String</B><p>The Rules String defines the behaviors that the Property Control Engine is searching for, and the resulting effects that rule will cause.  It is formatted as follows:</P>
+<P></P>
+<P>IF NAME_OF_THE_CONTROL CONDITION VALUE</P>
+<P>THEN LSS</P>
+<P>ELSE LSS</P>
+<P></P>
+<P>Where NAME_OF_THE_CONTROL is a string that matches the label value of the conrol.</P>
+<P>CONDITION is one of the following ==, !=, &lt;, &gt;, &gt;=, &lt;=</P>
+<P>VALUE is the value that shall be used to compare against the value of the control.  This</P>
+<P>could be a string comparison of data or numberic comparison of value.  It will also work</P>
+<P>for enums so long as the comparison for the enum is against the numeric representation </P>
+<P>of the  enum.</P>
+<P>THEN is where the LSS goes that will be applied if the condition evaluates true.  </P>
+<P>ELSE is where the LSS goes that will be applied if the condition evaluates false.  The else</P>
+<P>statement is optional.</P>
+<P>LSS is the cascading Layout & Style Sheet that will be applied.  See one of the LSS examples</P>
+<P>for details on formatting of the LSS</P> </TD>
+</TR>
+</Table>
+
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>colorMap</B><p>This string is an LSS formatted string that allows the mapping of hexidecimal color constants to string names that are easier to remember.  Once a color is defined in the colorMap, any subsequent LSS call can simply use the name of the color instead of the hexidecimal representation.  The format for this string is as follows:</P>
+<P>     colorMap{</P>
+<P>     myColorName:#000000;</P>
+<P>}</P> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>grouping</B><p>Style sheet determining how objects will be grouped.  The format of the style sheet for grouping objects is as follows:</P>
+<P>grouping{</P>
+<P>     objectGroupName:frontPanelObjectName;</P>
+<P>     objectGroupName2:frontPanelObjectName2;</P>
+<P>}</P>
+<P>Where the specifier grouping must stay the same.  objectGroupName is the name of the group, for example &quot;Group 1&quot;.  frontPanelObjectName is the name of the item on the front panel, for example &quot;Stop Button&quot;.  To add two buttons to group alpha would look as follows:</P>
+<P>grouping{</P>
+<P>     group alpha:Start Button;</P>
+<P>     group alpha:Stop Button;</P>
+<P>}</P> </TD>
+</TR>
+</Table>
+
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cerrcodeclst.png" ALT="cerrcodeclst"></P>
+</TD>
+<TD>
+<B>Error in</B> <P><B>error in</B> can accept error information wired from VIs previously called. Use this information to decide if any functionality should be bypassed in the event of errors from other VIs.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error. </P>
+</TD>
+</TR>
+</Table>
+
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="iusereventrn.png" ALT="iusereventrn"></P>
+</TD>
+<TD>
+<B>Refresh event</B><p>Since the Property Control Engine is only capable of firing when a value change event occurs, this event can be used to force a set of properties to update without a value change event.  This is equivelent to the &quot;Value Signaling&quot; event, without actually changing the value.  The data expected by this event is the refnum of the control whose &quot;Rules&quot; should be checked again.  For example, if you had a button that controlled 6 different properties, then something else changed somet of those properties and you wanted to re-evaluate the button again without actually clicking the button, use the refresh event.  Alternatively if you pass an invalid reference (blank) to the event, it will refresh all rules.</P> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="iusereventrn.png" ALT="iusereventrn"></P>
+</TD>
+<TD>
+<B>Exit event</B><p>The property control engine is asynchronously launched, and therefore running in the background.  Use this event to terminate the property control engine when the calling VI is finished running.  If this event is not fired, the property control engine will continue to run in the background.</P> </TD>
+</TR>
+</Table>
+
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ierrcodeclst.png" ALT="ierrcodeclst"></P>
+</TD>
+<TD>
+<B>Error out</B> <P>Returns errors from this VI if any occured.</P>
+</TD>
+</TR>
+</Table>
+
+<HR>
+
+
+</BODY>
+</HTML>

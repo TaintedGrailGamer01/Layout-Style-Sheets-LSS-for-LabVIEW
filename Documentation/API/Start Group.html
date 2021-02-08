@@ -1,0 +1,81 @@
+<HTML>
+<HEAD>
+<TITLE>LSS.lvlib:Start Group.vi</TITLE>
+<META NAME="Author" CONTENT="">
+<META NAME="GENERATOR" CONTENT="G Development Environment">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+
+<!-- Next Item Starts Here ****************************************************************************************************************************************************************************************** -->
+<A NAME="LSS.lvlib:Start Group.vi"></A><H2>LSS.lvlib:Start Group.vi</H2>
+<P>Creates groupings of objects based on the Style Sheet input.  All styles applied to the group itself will apply to all objects of the group.</P>
+<P>Groupings must be started before tags are marked into controls.  Otherwise the groups will not be marked into the tag hierarchy properly.</P>
+<P>There can be any number of groups, but each control can presently only belong to one group.</P>
+<P></P>
+<P><IMG SRC="LSS_lvlib_Start_Groupc.png" ALT="LSS.lvlib:Start Group.vi"></P>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cerrcodeclst.png" ALT="cerrcodeclst"></P>
+</TD>
+<TD>
+<B>error in (no error)</B> <P><B>error in</B> can accept error information wired from VIs previously called. Use this information to decide if any functionality should be bypassed in the event of errors from other VIs.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="c1dgnrn.png" ALT="c1dgnrn"></P>
+</TD>
+<TD>
+<B>Front Panel Objects</B><p>Contains array of all objects on the front panel.</P> </TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cgnrn.png" ALT="cgnrn"><p>Generic reference to a front panel object.</p></P>
+</TD>
+<TD>
+<B></B> </TD>
+</TR>
+</Table>
+</UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>Style Sheet</B><p>Style sheet determining how objects will be grouped.  The format of the style sheet for grouping objects is as follows:</P>
+<P>grouping{</P>
+<P>     objectGroupName:frontPanelObjectName;</P>
+<P>     objectGroupName2:frontPanelObjectName2;</P>
+<P>}</P>
+<P>Where the specifier grouping must stay the same.  objectGroupName is the name of the group, for example &quot;Group 1&quot;.  frontPanelObjectName is the name of the item on the front panel, for example &quot;Stop Button&quot;.  To add two buttons to group alpha would look as follows:</P>
+<P>grouping{</P>
+<P>     group alpha:Start Button;</P>
+<P>     group alpha:Stop Button;</P>
+<P>}</P> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ierrcodeclst.png" ALT="ierrcodeclst"></P>
+</TD>
+<TD>
+<B>error out</B> <P>Returns errors from this VI if any occured.</P>
+</TD>
+</TR>
+</Table>
+
+
+</BODY>
+</HTML>

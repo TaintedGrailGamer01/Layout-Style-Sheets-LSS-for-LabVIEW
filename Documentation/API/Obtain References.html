@@ -1,0 +1,103 @@
+<HTML>
+<HEAD>
+<TITLE>LSS.lvlib:Obtain References.vi</TITLE>
+<META NAME="Author" CONTENT="">
+<META NAME="GENERATOR" CONTENT="G Development Environment">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+
+<!-- Next Item Starts Here ****************************************************************************************************************************************************************************************** -->
+<A NAME="LSS.lvlib:Obtain References.vi"></A><H2>LSS.lvlib:Obtain References.vi</H2>
+<P>This VI obtains a reference to every object on the front panel of the VI reference passed to it.  This is used at the start of all applications using LSS to obtain the references it will use later for changing style programatically.</P>
+<P></P>
+<P><IMG SRC="LSS_lvlib_Obtain_Referencesc.png" ALT="LSS.lvlib:Obtain References.vi"></P>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cvirn.png" ALT="cvirn"></P>
+</TD>
+<TD>
+<B>VI in</B><p>Reference to the VI whose front panel will be modified by subsequent LSS calls.</P> </TD>
+</TR>
+</Table>
+
+
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>colorMap</B><p>This string is an LSS formatted string that allows the mapping of hexidecimal color constants to string names that are easier to remember.  Once a color is defined in the colorMap, any subsequent LSS call can simply use the name of the color instead of the hexidecimal representation.  The format for this string is as follows:</P>
+<P>     colorMap{</P>
+<P>     myColorName:#000000;</P>
+<P>}</P> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>grouping</B><p>Style sheet determining how objects will be grouped.  The format of the style sheet for grouping objects is as follows:</P>
+<P>grouping{</P>
+<P>     objectGroupName:frontPanelObjectName;</P>
+<P>     objectGroupName2:frontPanelObjectName2;</P>
+<P>}</P>
+<P>Where the specifier grouping must stay the same.  objectGroupName is the name of the group, for example &quot;Group 1&quot;.  frontPanelObjectName is the name of the item on the front panel, for example &quot;Stop Button&quot;.  To add two buttons to group alpha would look as follows:</P>
+<P>grouping{</P>
+<P>     group alpha:Start Button;</P>
+<P>     group alpha:Stop Button;</P>
+<P>}</P> </TD>
+</TR>
+</Table>
+
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cerrcodeclst.png" ALT="cerrcodeclst"></P>
+</TD>
+<TD>
+<B>error in (no error)</B> <P><B>error in</B> describes error conditions that occur before this node runs. This input provides standard error in functionality.</P>
+</TD>
+</TR>
+</Table>
+
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="i1dgnrn.png" ALT="i1dgnrn"></P>
+</TD>
+<TD>
+<B>Front Panel Objects</B><p>Contains the reference to every front panel object.  This reference array must be passed to other LSS function calls.</P> </TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ignrn.png" ALT="ignrn"><p>Generic reference to a front panel object.</p></P>
+</TD>
+<TD>
+<B></B> </TD>
+</TR>
+</Table>
+</UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ierrcodeclst.png" ALT="ierrcodeclst"></P>
+</TD>
+<TD>
+<B>error out</B> <P>Returns errors from this VI if any occured.</P>
+</TD>
+</TR>
+</Table>
+
+<HR>
+
+
+</BODY>
+</HTML>
